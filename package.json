@@ -1,0 +1,21 @@
+{
+    "name": "hexo-cdnify",
+    "version": "0.0.1",
+    "main": "index",
+    "author": "Jim Woo (http://inwoo.me)",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zqjimlove/hexo-cdnify.git"
+    },
+    "bugs": {
+        "url": "https://github.com/zqjimlove/hexo-cdnify.git/issues"
+    },
+    "homepage": "https://github.com/zqjimlove/hexo-cdnify.git",
+    "keywords": ["hexo", "cdn"],
+    "dependencies": {
+        "minimatch": "^3.0.0",
+        "object-assign": "^4.1.0",
+        "soup": "^0.1.5",
+        "url": "^0.11.0"
+    }
+}
