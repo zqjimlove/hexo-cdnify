@@ -4,7 +4,9 @@
 
 ## What is it
 
-The plugin through your `HTML` for statics file URLs rewrite to the CDN 
+The plugin through your `HTML` for statics file URLs rewrite to the CDN
+
+Default support:
 
 ```html
     <img data-src="____">
@@ -17,6 +19,10 @@ The plugin through your `HTML` for statics file URLs rewrite to the CDN
     <source src="____"></source>
 ```
 
+## install
+
+`npm install hexo-cdnify --save`
+
 ## options
 
 ```yaml
@@ -26,3 +32,13 @@ cdn:
   tags:
     'img[data-orign]':  data-orign
 ```
+
+#### base 
+
+the CDN hostname. e.g., '//cdn.com/'.
+
+It will replace `./vendors/index.css` to `//cdn.com/vendors/index.css`
+
+#### tags
+
+That is, any elements matching the CSS selector `img[data-orign]` will have their `data-orign` attributes , etc.
