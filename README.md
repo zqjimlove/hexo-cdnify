@@ -29,6 +29,7 @@ Default support:
 cdn:
   enable: true
   base: //cdn.com
+  tail: v=2019042200000
   tags:
     'img[data-orign]':  data-orign
 ```
@@ -42,3 +43,9 @@ It will replace `./vendors/index.css` to `//cdn.com/vendors/index.css`
 #### tags
 
 That is, any elements matching the CSS selector `img[data-orign]` will have their `data-orign` attributes , etc.
+
+#### tail
+
+Adding `tail` parameters and supporting HEXO_CDN_QS environment variables, avoiding CDN caching。
+
+`tail: v1` to `index.js?v1`
