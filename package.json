@@ -11,7 +11,10 @@
         "url": "https://github.com/zqjimlove/hexo-cdnify.git/issues"
     },
     "homepage": "https://github.com/zqjimlove/hexo-cdnify.git",
-    "keywords": ["hexo", "cdn"],
+    "keywords": [
+        "hexo",
+        "cdn"
+    ],
     "dependencies": {
         "minimatch": "^3.0.0",
         "object-assign": "^4.1.0",
