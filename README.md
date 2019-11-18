@@ -32,6 +32,9 @@ cdn:
   tail: v=2019042200000
   tags:
     'img[data-orign]':  data-orign
+  excludeTags:
+    - 'link'
+    - 'script'
 ```
 
 #### base 
