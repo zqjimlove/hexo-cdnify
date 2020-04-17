@@ -32,6 +32,12 @@ cdn:
   tail: v=2019042200000
   tags:
     'img[data-orign]':  data-orign
+    'img[src]':
+      attribute: src
+      callback: > 
+        function(imgSrc) {
+          return imgSrc + '?&v='+ Date.now()
+        }
   excludeTags:
     - 'link'
     - 'script'
@@ -52,3 +58,16 @@ That is, any elements matching the CSS selector `img[data-orign]` will have thei
 Adding `tail` parameters and supporting HEXO_CDN_QS environment variables, avoiding CDN caching。
 
 `tail: v1` to `index.js?v1`
+
+#### support callback function
+
+Can custome JS function to handle the cdn url.
+
+```yaml
+'img[src]':
+      attribute: src
+      callback: > 
+        function(imgSrc) {
+          return imgSrc + '?&v='+ Date.now()
+        }
+```

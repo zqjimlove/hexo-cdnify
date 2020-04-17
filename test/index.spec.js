@@ -23,7 +23,7 @@ test('base test', function () {
         '<script src="./a.jpg"></script>',
         '<source src="./a.jpg" />',
         '<video src="./a.jpg" poster="./a.jpg"></video>',
-        '<img src="./a.jpg" data-src="./a.jpg" alt="" />',
+        '<img src="./a.jpg" data-src="./a.jpg" alt="">',
       ].join(''),
       {}
     )
@@ -36,7 +36,7 @@ test('base test', function () {
       '<script src="//cdn.com/a.jpg?v1"></script>',
       '<source src="//cdn.com/a.jpg?v1" />',
       '<video src="./a.jpg" poster="//cdn.com/a.jpg?v1"></video>',
-      '<img src="//cdn.com/a.jpg?v1" data-src="//cdn.com/a.jpg?v1" alt="" />',
+      '<img src="//cdn.com/a.jpg?v1" data-src="//cdn.com/a.jpg?v1" alt="">',
     ].join('')
   )
 })
@@ -57,6 +57,30 @@ test('test inline style url', function () {
       '<span style="background-image:url(//cdn.com/images/a.png?v1)"></span>',
       '<span style="background-image:url(\'//cdn.com/images/a.png?v1\')"></span>',
       '<span style=\'background-image:url("//cdn.com/images/a.png?v1")\'></span>',
+    ].join('')
+  )
+})
+
+test('test custome replace function', function () {
+  hexo.config.cdn.tags = {
+    'a[src]': {
+      attribute: 'src',
+      callback: `function(attributeValue,rewriteURL){ return rewriteURL(attributeValue) }`,
+    },
+  }
+  expect(
+    cdnify.call(
+      hexo,
+      [
+        '<a src="./a.jpg" data-src="./a.jpg" alt="" />',
+        '<a src="./b.jpg" data-src="./a.jpg" alt="" />',
+      ].join(''),
+      {}
+    )
+  ).to.eq(
+    [
+      '<a src="//cdn.com/a.jpg?v1" data-src="./a.jpg" alt="" />',
+      '<a src="//cdn.com/b.jpg?v1" data-src="./a.jpg" alt="" />',
     ].join('')
   )
 })
