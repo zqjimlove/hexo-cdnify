@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x, 15.x]
+        node-version: [15.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -21,7 +21,7 @@ jobs:
       uses: 1466587594/get-current-time@v2
       id: current-time
       with:
-        format: YYYYMMDD-HH
+        format: YYYY-MM-DD
         utcOffset: "+08:00"
     - name: Use current time
       env:
@@ -30,4 +30,4 @@ jobs:
         F_TIME: "${{ steps.current-time.outputs.formattedTime }}"
         YEAR: "${{ steps.current-time.outputs.year }}"
         DAY: "${{ steps.current-time.outputs.day }}"
-      run: echo $TIME $R_TIME $F_TIME $YEAR $DAY
+      run: echo "$F_TIME Build"
