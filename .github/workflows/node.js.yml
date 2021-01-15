@@ -21,7 +21,7 @@ jobs:
       uses: 1466587594/get-current-time@v2
       id: current-time
       with:
-        format: YYYY-MM-DD
+        format: YYYY-MM-DD hh:mm:ss
         utcOffset: "+08:00"
     - name: Use current time
       env:
